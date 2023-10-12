@@ -1,0 +1,108 @@
+.hero_section {
+    margin-top: 25px;
+}
+body{
+    background: #F3F2F5;
+}
+
+.hero_section p {
+    color: #326DDF;
+    text-align: center;
+
+
+
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 27px;
+    /* 158.824% */
+    letter-spacing: 1.7px;
+    text-transform: uppercase;
+}
+
+.hero_section h3 {
+    color: #000;
+    text-align: center;
+
+
+    font-size: 42px;
+    margin-top: 10px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: -1.68px;
+}
+
+.alterparent {
+    border-radius: 12px;
+    background: #FFF;
+    /* background: linear-gradient(180deg, rgba(243, 242, 245, 0.00) -52.71%, #F3F2F5 100%); */
+    /* box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px; */
+    margin-top: 56px;
+    padding-top: 20px;
+    width: 100%;
+}
+
+.alternative-left h1 {
+    /* width: 40%; */
+    /* margin: 0px 50% 0 00%; */
+    margin: auto;
+    color: #000;
+
+    text-align: center;
+
+
+    font-style: normal;
+    font-weight: 600;
+    line-height: 35px;
+}
+
+.alternative-left p {
+    color: #333;
+    text-align: center;
+
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-top: 30px;
+}
+.booknow{
+    width: 100%;
+    height: 100%;
+
+    text-align: center;
+    margin: auto;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+.booknow a{
+    border: 2px solid;
+    padding: 10px;
+    border-radius: 14px;
+    text-decoration: none;
+    background-color: #3089F1;
+    color: white;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    
+    
+    line-height: normal;
+    
+    
+    
+}
+.alternative-left img
+{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width:35%;
+    height:15%;
+}
+@media (max-width: 768px) {
+    .alternative-left img{
+        width:70%;
+        height:30%;
+    }   
+}

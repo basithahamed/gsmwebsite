@@ -1,0 +1,19 @@
+*,p,a{
+    padding: 0px;
+    margin: 0px;
+    /* overflow: hidden; */
+}
+body{
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.x-axis
+{
+    display: flex;
+    flex-direction: row;
+}
+.y-axis
+{
+    display: flex;
+    flex-direction: column;
+}
