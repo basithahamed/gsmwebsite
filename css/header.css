@@ -86,7 +86,7 @@ line-height: normal;
 }
 
 .mobile-nav a {
-    color: white;
+    /* color: white; */
     text-decoration: none;
     font-size: 20px;
 }
@@ -100,9 +100,11 @@ line-height: normal;
     left: 0;
     width: 45%;
     height: 100%;
-    display: none   ;
+    display: none;
+    
     padding-top: 40px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    padding-top: 100px;
 
 
 }
@@ -124,5 +126,9 @@ line-height: normal;
 
     .mobile-nav {
         display: block;
+    }
+    .mobilesection
+    {
+        display: none;
     }
 }

@@ -34,11 +34,12 @@ body {
     line-height: normal;
 }
 
-.models li:hover {
+a:hover {
     border-radius: 6px;
     background: #FFF;
-    padding: 10px;
-    box-shadow: -4px 4px 24px 0px rgba(0, 0, 0, 0.06);
+    color: #3089F1;
+    /* padding: 10px; */
+    /* box-shadow: -4px 4px 24px 0px rgba(0, 0, 0, 0.06); */
 }
 
 .wholehero {
@@ -55,7 +56,7 @@ body {
     margin-top: 40px;
     justify-content: space-around;
 
-    padding: 5%;
+    padding: 3.5%;
 }
 
 .left-hero {
@@ -67,16 +68,40 @@ body {
 
 .right-hero {
     width: 30%;
-    margin: auto;
+    /* margin: auto; */
 }
 
-.lft-herocontent {
+
+.lft-herocontent p {
     width: 100%;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    text-align: left;
+}
+
+.herobtnclass {
+    margin-top: 40px;
+
+}
+
+.lft-herocontent a,
+#submit {
+    border: 2px solid;
+    padding: 16px;
+    border-radius: 20px;
+    text-decoration: none;
+    background-color: #3089F1;
+    color: white;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+
+}
+
+#submitid {
+
+    text-align: center;
+    margin-bottom: 20px;
+    /* margin: auto; */
 }
 
 .left-hero h1 {
@@ -86,7 +111,7 @@ body {
     font-weight: 700;
     line-height: 64px;
     width: 100%;
-    text-align: center;
+    /* text-align: center; */
 }
 
 .orange {
@@ -126,24 +151,56 @@ select {
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
+    border-radius: 10px;
+    border: 1px solid #C3C3C3;
+    background: #FFF;
 }
 
 .textcontext {
     width: 80%;
     margin: auto;
-    margin-top: 50px;
+    margin-top: 10px;
 
-    background: #FFF;
+
 }
 
-.textcontext h2 {
+.textparent {
+    margin-top: 150px;
+    width: 100%;
+    margin-bottom: 170px;
+    /* padding: 500px; */
+    /* background: #FFF; */
+    /* padding: 5%; */
+}
+
+.textcontext h1 {
     color: #000;
 
     font-style: normal;
     font-weight: 700;
-    line-height: 76px;
+    width: 80%;
+    margin: auto;
+    /* font-size: 50px; */
+    font-size: 3.5rem;
+    line-height: 70px;
     /* 121.795% */
 }
+
+.parabox {
+    width: 80%;
+
+    margin: auto;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.parabox p {
+    width: 60%;
+    font-size: 20px;
+    /* margin: auto; */
+    /* text-align: left; */
+}
+
 
 .twoboxes-content {
     width: 100%;
@@ -156,6 +213,7 @@ select {
     width: 30%;
     margin: auto;
 }
+
 
 .restbox {
     width: 100%;
@@ -171,41 +229,49 @@ select {
 .righbox h1 {
     color: #FFF;
 
-    
+
     font-style: normal;
     font-weight: 600;
     line-height: 62px;
     /* 113.971% */
 }
 
-.righbox p {
-    color: #FFF;
-    
-    
+
+
+.txtcontentp {
+    color: #6E6E73;
+    font-size: 21px;
     font-style: normal;
-    font-weight: 400;
+    font-weight: 600;
     line-height: 32px;
     /* 152.381% */
+    letter-spacing: -0.42px;
 }
-.txt h3,p{
+
+.txt h3,
+p {
     color: #6E6E73;
-text-align: center;
+    text-align: center;
 
-font-style: normal;
-font-weight: 700;
-text-align: left;
- /* 133.333% */
+    font-style: normal;
+    font-weight: 700;
+    text-align: left;
+    /* 133.333% */
 }
-.txt .black{
+
+.txt .black {
     color: #000;
-text-align: center;
-font-style: normal;
-font-weight: 700;
+    text-align: center;
+    font-style: normal;
+    font-weight: 700;
 
 }
+
 @media (max-width: 768px) {
     .models {
-        flex-direction: column;
+        /* flex-direction: column; */
+        gap: 25px;
+        flex-wrap: wrap;
     }
 
 
@@ -217,7 +283,7 @@ font-weight: 700;
 
     .twobox-text-left,
     .twobox-text-right {
-        width: 80%;
+        width: 100%;
     }
 
     .herobox,
@@ -227,9 +293,29 @@ font-weight: 700;
     }
 
     .form {
-        width: 80%;
+        width: 90%;
         margin: auto;
-        margin-top: 25px;
+        margin-top: 100px;
     }
 
+    .herobtnclass {
+        text-align: center;
+    }
+    /* .textcontext  { */
+        /* width: 100%; */
+    /* } */
+
+    .parabox p,
+    .parabox {
+        width: 100%;
+    }
+    .textcontext h1
+    {
+        font-size: 2rem;
+        width: 100%;
+        line-height: 40px;
+    }
+    #melaspace{
+        margin-top: 40px;
+    }
 }
