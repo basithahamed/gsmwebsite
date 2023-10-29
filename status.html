@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/secondpage.css">
+
+
+
+    <!-- for the navigation script -->
+    <script src="js/script.js"></script>
+    <script src="js/statusfetch.js"></script>
+
+</head>
+
+<body>
+
+
+
+    <div class="topbox x-axis">
+        <div class="topbox-left">
+            <p>What service you need?</p>
+        </div>
+        <div class="topbox-right" id="web">
+            <a href="status.html">Track Your Service</a>
+        </div>
+    </div>
+    <nav>
+        <div class="container">
+            <div class="links x-axis">
+                <div class="link-left">
+                    <div class="link-left-inner x-axis">
+                        <a href="index.html"><img src="assets/logo.png" alt="" width="150px"></a>
+                        <ul class="link-items">
+
+                            <li><a href="mac.html">Mac</a></li>
+                            <li><a href="iphone.html">iPhone</a></li>
+                            <li>iWatch</li>
+                            <li>iPad</li>
+                            <li>Airpods</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="link-right">
+                    <ul class="link-items">
+
+                        <li>Resources ></li>
+                        <li>Contact</li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <nav class="mobile-nav">
+        <div class="mobile-links" id="mobile-links">
+            <ul>
+                <li><a href="mac.html">Mac</a></li>
+                <li><a href="iphone.html">iPhone</a></li>
+                <li><a href="#">iWatch</a></li>
+                <li><a href="#">iPad</a></li>
+                <li><a href="#">Airpods</a></li>
+                <li><a href="#">Resources ></a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+        <div class="row">
+            <div class="col-2"><i class="fa-solid fa-bars" onclick="toogleNav()"></i></div>
+
+            <div class="col-10">
+                <div class="topbox-right text-center">
+                    <a href="status.html">Track Your Service</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- enum('pending','accepted','completed','workinprogress','dispatched','delivered','pickup','delivery','collected','yettostartrepair') -->
+
+    <div class="wholecontainer">
+
+        <div class="innerBox">
+            <div class="row">
+                <div class="col-md-6">
+                    <div style="width: 100%;">
+                        <h2 class="mbno">Order No:</h2>
+                        <div class="x-axis">
+                            <input type="text" id="orderno" class="common-input normal-input" placeholder="xxxxxxx"
+                                required="true" style="margin-right: 30px;">
+                            <button type="button" onclick="getStatus()" id="submit" style="width:40%;">Get
+                                Status</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6" id="rightDabba">
+                    <h2 class="mbno" id="orange">Status:</h2>
+                    <div>
+                        <div class="x-axis parentBox">
+                            <div class="boxDabba" id="pending">
+                            </div>
+                            In Review
+                        </div>
+
+                    </div>
+                    <!-- <div class="vl"></div>  -->
+                    <table>
+                        <tr>
+                            <td><strong>|</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>|</strong></td>
+                        </tr>
+
+
+                    </table>
+                    <div class="">
+                        <div class="x-axis parentBox">
+                            <div class="boxDabba" id="accepted">
+                            </div>
+                            Order accepted
+                        </div>
+
+                    </div>
+                    <table>
+                        <tr>
+                            <td><strong>|</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>|</strong></td>
+                        </tr>
+
+
+                    </table>
+
+                    <div class="">
+                        <div class="x-axis parentBox">
+                            <div class="boxDabba " id="pickup">
+                            </div>
+                            On the way for pickup
+                        </div>
+
+                    </div>
+                    <table>
+                        <tr>
+                            <td><strong>|</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>|</strong></td>
+                        </tr>
+
+
+                    </table>
+
+                    <div class="">
+                        <div class="x-axis parentBox">
+                            <div class="boxDabba " id="repair">
+                            </div>
+                            In service
+                        </div>
+
+                    </div>
+                    <table>
+                        <tr>
+                            <td><strong>|</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>|</strong></td>
+                        </tr>
+
+
+                    </table>
+
+                    <div class="">
+                        <div class="x-axis parentBox">
+                            <div class="boxDabba " id="completed">
+                            </div>
+                            Ready for delivery
+                        </div>
+
+                    </div>
+                    <table>
+                        <tr>
+                            <td><strong>|</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>|</strong></td>
+                        </tr>
+
+
+                    </table>
+
+                    <div class="">
+                        <div class="x-axis parentBox">
+                            <div class="boxDabba " id="dispatched">
+                            </div>
+                            Dispatched
+                        </div>
+
+                    </div>
+                    <table>
+                        <tr>
+                            <td><strong>|</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>|</strong></td>
+                        </tr>
+
+
+                    </table>
+
+                    <div class="">
+                        <div class="x-axis parentBox">
+                            <div class="boxDabba " id="delivered">
+                            </div>
+                            Delivered
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+</body>
+
+</html>

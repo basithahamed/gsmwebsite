@@ -17,20 +17,24 @@
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/secondpage.css">
+    <link rel="stylesheet" href="css/style.css">
 
-
+    <!-- <link rel="stylesheet" href="magicscroll/magicscroll.css"/> -->
+    <!-- <script src="magicscroll/magicscroll.js"></script> -->
     <!-- for the navigation script -->
     <script src="js/script.js"></script>
     <script src="js/fetch.js"></script>
+    <script src="js/scriptcopy.js"></script>
+
 </head>
 
-<body>
+<body onload="fetchiphoneData()">
     <div class="topbox x-axis">
         <div class="topbox-left">
             <p>What service you need?</p>
         </div>
         <div class="topbox-right" id="web">
-            <a href="">Track Your Service</a>
+            <a href="status.html">Track Your Service</a>
         </div>
     </div>
     <nav>
@@ -77,18 +81,36 @@
 
             <div class="col-10">
                 <div class="topbox-right text-center">
-                    <a href="">Track Your Service</a>
+                    <a href="status.html">Track Your Service</a>
                 </div>
             </div>
         </div>
     </nav>
     <div class="mobilesection">
         <h3 class="text-center m-5">What is your Device ?</h3>
-        <ul class="models" id="modelList">
-           
-           
-        </ul>
     </div>
+
+
+    <!-- <section class="product"> 
+        <button class="pre-btn"><img src="assets/arrow.png" alt=""></button>
+        <button class="nxt-btn"><img src="assets/arrow.png" alt=""></button>
+         </section> -->
+    <!-- <div class="product-container models" id="modelList">
+        </div> -->
+
+
+    <section class="product">
+        <!-- <button class="pre-btn"><img src="assets/arrow.png" alt=""></button>
+            <button class="nxt-btn"><img src="assets/arrow.png" alt=""></button> -->
+        <div class="product-container" id="modelList">
+
+
+        </div>
+    </section>
+
+    <!-- </div> -->
+
+    <!-- </div> -->
 
     <div class="wholehero">
         <div class="herobox">
@@ -100,92 +122,108 @@
                     <h1>Private Mobile Care</h1>
                     <p>Chennai's Premier Destination for MacBook Repairs</p>
                     <div class="herobtnclass">
-                        <a href="" class="booknow">Book Now</a>
+                        <a href="tel:+919629546384" class="booknow">Contact Now</a>
                     </div>
                 </div>
             </div>
             <div class="right-hero">
 
-                <div class="form">
-                    <p class="orange">Request for Doorstep Service</p>
+                <div class="form" >
+                    <p class="orange">Request for Pickup Service</p>
                     <form method="post" id="myForm" enctype="multipart/form-data">
                         <input type="text" id="name" class="common-input normal-input" placeholder="Customer Name"
                             name="customername" required="true">
-                        <select id="modelSelect">
-                            <option value="" disabled selected>Please Select An Model</option>
-                            
-                        </select><input type="text" id="name" class="common-input normal-input" placeholder="Issue" name="issue"
+                        <select id="modelSelect" name="device">
+                            <option disabled selected>Please Select An Model</option>
+                        </select>
+
+                        <input type="text" id="name" class="common-input normal-input" placeholder="Issue" name="issue"
                             required="true">
 
-                            <div class="preview">
-                                <img id="file-ip-1-preview">
-                            </div>
-                            
-                            
-                            <div class="mb-3">
-                                <label for="formFile" class="form-label">Upload An Image</label>
-                                <input type="file" class="form-control" id="formFile" name="uploadedImage" accept="image/*" width="100%" onchange="showPreview(event);">
-                              </div>
-                            <!-- 
                         <div class="preview">
                             <img id="file-ip-1-preview">
                         </div>
-                        <label for="file-ip-1" class="upload" id="file-ip-1txt">Upload Image</label> -->
-                        <!-- <input type="file" id="file-ip-1" name="file" accept="image/*" class="block" onchange="showPreview(event);"> -->
-                        <!-- <input type="file" id="file-ip-1" name="uploadedImage" accept="image/*" width="100%" > -->
-                        <input type="text" id="name" class="common-input normal-input" placeholder="Mobile"
-                            name="mobileno" required="true">
-                        <p class="text-center m-3 successmsg" style="color: #3089F1;" style="display: none;"
-                            id="successmsg">Data Submitted Successfully</p>
-                        <p class="text-center m-3 errormsg" style="color: red;" style="display: none;" id="errormsg">
-                            Oops An Error Occured</p>
-                            
-                            <!-- <button class="submitbtn" type="submit" id="submit">SUBMIT</button> -->
+
+
+                        <div class="mb-3">
+                            <label for="formFile" class="form-label">Upload An Image</label>
+                            <input type="file" class="form-control" id="formFile" name="uploadedImage" accept="image/*"
+                                width="100%" onchange="showPreview(event);">
+                        </div>
+
+
+                        <input type="number" id="mobile" class="common-input normal-input" placeholder="Mobile"
+                            name="mobile" required="true" pattern="[0-9]{10}">
+
+
+
+
 
                         <div class="herobtnclass" id="submitid">
-                            <input type="submit" value="Submit" class="sub">
-                            <!-- <button class="submitbtn" type="submit" id="submit">SUBMIT</button> -->
-                            <!-- <button class="submitbtn" id="submit">SUBMIT</button> -->
-                            <!-- <div onclick="move()">Submit</div> -->
+                            <div class="sub" onclick="otp()">Submit</div>
+
                         </div>
 
                     </form>
 
+                    <section class="formDiv" id="otpForm" style="display: none">
+
+                        <div class="text-center mt-3">Verification Code</div>
+                        <p class="text-center mt-4">We have sent a verification code
+                            to your mobile number</p>
+                        <div id='inputs'>
+                            <input id='otp' type='number' maxLength="4" />
+                        </div>
+                        
+                        <h3 class="text-center m-3 errormsg" style="color: red;" style="display: none;" id="errormsg">
+                            Otp is Incorrect</h3>
+                        <button id="submit" style="width: 100%;" onclick="submit()">Submit</button>
+                    </section>
                 </div>
             </div>
         </div>
     </div>
-    
+
     <div class="textparent">
         <div class="textcontext">
             <h1 class="mt-5" id="why">Why GSM SERVICE is the Go-To <br> for iPhone Repairs in Chennai? </h1>
             <!-- <h2 class="text-center"></h2> -->
             <div class="parabox">
-                <p class="textcontextpara mt-5">At GSM SERVICE - Private Mobile Care, we recognize the integral role iPhones play in our daily lives. From capturing memories to managing work, iPhones are more than just phones; they're extensions of ourselves. Here's why we are the preferred choice for iPhone repairs:</p>
+                <p class="textcontextpara mt-5">At GSM SERVICE - Private Mobile Care, we recognize the integral role
+                    iPhones play in our daily lives. From capturing memories to managing work, iPhones are more than
+                    just phones; they're extensions of ourselves. Here's why we are the preferred choice for iPhone
+                    repairs:</p>
 
             </div>
             <div class="twoboxes-content mt-5">
                 <div class="twobox-text-left">
                     <h2 class="mt-5"><strong>Unparalleled Expertise:</strong></h2>
-                    <p class="mt-4 txtcontentp">Our team is not only well-versed with the intricacies of iPhones but also undergoes regular training to stay updated with the latest models and technologies. From the classic iPhone 6 to the latest iPhone 13, we handle them all.</p>
+                    <p class="mt-4 txtcontentp">Our team is not only well-versed with the intricacies of iPhones but
+                        also undergoes regular training to stay updated with the latest models and technologies. From
+                        the classic iPhone 6 to the latest iPhone 13, we handle them all.</p>
                 </div>
                 <div class="twobox-text-right " id="melaspace">
                     <h2 class=""><strong>Data Safety First:</strong></h2>
-                    <p class="mt-4 txtcontentp">We understand the value of your data. Our advanced data recovery solutions ensure that you don't lose those precious photos, messages, or any other vital information.</p>
+                    <p class="mt-4 txtcontentp">We understand the value of your data. Our advanced data recovery
+                        solutions ensure that you don't lose those precious photos, messages, or any other vital
+                        information.</p>
                 </div>
             </div>
             <div class="twoboxes-content mt-5" id="melaspace">
                 <div class="twobox-text-left">
                     <h2><strong>Customer-Centricity:</strong></h2>
-                    <p class="mt-4 txtcontentp">Our services are tailored around the needs of our customers. We listen, understand, and then deliver solutions that not only fix the issues but also ensure longevity.</p>
-    
-                    
+                    <p class="mt-4 txtcontentp">Our services are tailored around the needs of our customers. We listen,
+                        understand, and then deliver solutions that not only fix the issues but also ensure longevity.
+                    </p>
+
+
                 </div>
                 <div class="twobox-text-right " id="melaspace">
-                    <h2 ><strong>Quality with Affordability:</strong></h2>
-                    <p class="mt-4 txtcontentp">While iPhones are premium, repairs don't have to be. We offer top-quality repair services that don't break the bank.</p>
+                    <h2><strong>Quality with Affordability:</strong></h2>
+                    <p class="mt-4 txtcontentp">While iPhones are premium, repairs don't have to be. We offer
+                        top-quality repair services that don't break the bank.</p>
                     <br>
-                    
+
                 </div>
             </div>
         </div>
@@ -193,12 +231,15 @@
     <div class="restbox">
         <div class="row">
             <div class="col-md-6 col-lg-6 col-sm-12">
-                <img src="https://s3-alpha-sig.figma.com/img/4e2d/5360/fb059c037e8fee684bfeff8a052cd8e2?Expires=1698019200&Signature=eQhYCVhClFKcsyhV0lnY812z~cw88M2IFaE~u57YygYqxjJ9mBv2uyBTofAG6-1XPXZRsUaXUV8JJC2KO6Sn8bKK9mI8Zq6j3O1mMzwaDKA4t4czDBn0pVxG8lHsgKozNYPFMSGgyWtFWAYC3ypst6zZFCYHyVJg7EALZyknDZIhK2fhCA8yP983d9ZWTmWft7ZerisXg0007wcuUEF5aE7~CsPflLaQbAknleqQAZVfufQXgSNqc~lJaBAqFEC3Ue3-jxs2xqyY8HF-Gn9S8WW50UIYFfJbvL97sNyC8oCIIjo6Izxn599j5ztK6z40U-PFsx87fOAFeQi~ytDMGA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4" alt="" width="100%" height="100%">
+                <img src="assets/office.jpeg">
             </div>
             <div class="col-md-6 col-lg-6 col-sm-12 righbox">
                 <h1>Positioning Ourselves Above the Rest</h1>
                 <br>
-                <p>In a city with iPhone service centers, GSM SERVICE - Private Mobile Care stands tall. Our commitment to excellence, combined with a deep understanding of our customer's needs, positions us as the leading iPhone service center in Chennai. When you choose us, you're choosing reliability, efficiency, and peace of mind.</p>
+                <p>In a city with iPhone service centers, GSM SERVICE - Private Mobile Care stands tall. Our commitment
+                    to excellence, combined with a deep understanding of our customer's needs, positions us as the
+                    leading iPhone service center in Chennai. When you choose us, you're choosing reliability,
+                    efficiency, and peace of mind.</p>
             </div>
         </div>
     </div>
@@ -213,6 +254,8 @@
     </div>
 
 
+
+    </div>
 </body>
 
 </html>

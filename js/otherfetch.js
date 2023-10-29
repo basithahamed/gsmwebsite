@@ -1,6 +1,6 @@
 // Function to fetch data from the server
 function fetchiphoneData() {
-    fetch('http://193.203.160.93:8080/gsmbackend/getotherdevice') // Replace with your server endpoint
+    fetch('http://backend.gsmservice.in:8080/gsmbackend/getdevice?category=mac') // Replace with your server endpoint
         .then(response => response.json())
         .then(data => {
             displayModelData(data); // Call a function to display model data
@@ -21,8 +21,8 @@ function displayModelData(modelData) {
     modelData.forEach(model => {
         const listItem = document.createElement('li');
         listItem.innerHTML = `
-            <img src="${model.icon}" alt="${model.modelname} Icon" width="94" height="42">
-            <span class="modelname" onclick="getModel('${model.device}')">${model.device}</span>
+            <img src="${model.icon}" alt="${model.deviceName} Icon" width="94" height="42">
+            <span class="modelname" onclick="getModel('${model.deviceName}')">${model.deviceName}</span>
         `;
         modelList.appendChild(listItem);
     });
@@ -32,7 +32,7 @@ function displayModelData(modelData) {
 fetchiphoneData();
 
 function getModel(deviceName) {
-    const apiUrl = `http://193.203.160.93:8080/gsmbackend/getothermodel?device_name=${deviceName}`;
+    const apiUrl = `http://backend.gsmservice.in:8080/gsmbackend/getothermodel?device_name=${deviceName}`;
     
     // Get a reference to the <select> element
     const modelSelect = document.getElementById("modelSelect");
@@ -47,7 +47,7 @@ function getModel(deviceName) {
             data.forEach(item => {
                 // Create an <option> element for each item and add it to the <select>
                 const option = document.createElement("option");
-                option.value = item.name; // Adjust this to match the structure of your data
+                option.value = item.modelname; // Adjust this to match the structure of your data
                 option.text = item.modelname;
                 modelSelect.appendChild(option);
             });

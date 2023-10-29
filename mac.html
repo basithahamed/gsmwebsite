@@ -22,7 +22,9 @@
     <!-- for the navigation script -->
     <script src="js/script.js"></script>   
     <script src="js/otherfetch.js"></script>
-
+    <link rel="stylesheet" href="s.scss">
+    <!-- <link rel="stylesheet" href="magicscroll/magicscroll.css"/>
+     <script src="magicscroll/magicscroll.js"></script> -->
 </head>
 
 <body>
@@ -34,7 +36,7 @@
             <p>What service you need?</p>
         </div>
         <div class="topbox-right" id="web">
-            <a href="">Track Your Service</a>
+                    <a href="status.html">Track Your Service</a>
         </div>
     </div>
     <nav>
@@ -82,17 +84,24 @@
 
             <div class="col-10">
                 <div class="topbox-right text-center">
-                    <a href="">Track Your Service</a>
+                    <a href="status.html">Track Your Service</a>
                 </div>
             </div>
         </div>
     </nav>
     <div class="mobilesection">
         <h3 class="text-center m-5">What is your Device ?</h3>
-        <ul class="models" id="modelList">
-            
-        </ul>
+        
     </div>
+    
+    <section class="product">
+        <!-- <button class="pre-btn"><img src="assets/arrow.png" alt=""></button>
+            <button class="nxt-btn"><img src="assets/arrow.png" alt=""></button> -->
+        <div class="product-container" id="modelList">
+
+
+        </div>
+    </section>
 
     <div class="wholehero">
         <div class="herobox">
@@ -103,44 +112,62 @@
                     <h1>Private Mobile Care</h1>
                     <p>Chennai's Premier Destination for MacBook Repairs</p>
                     <div class="herobtnclass">
-                        <a href="" class="booknow">Book Now</a>
+                        <a href="tel:+919629546384" class="booknow">Contact Now</a>
                     </div>
                 </div>
             </div>
             <div class="right-hero">
 
                 <div class="form">
-                    <p class="orange">Request for Doorstep Service</p>
-
-                    <form action="http://localhost:8080/gsmbackend/uploadorder" method="post" id="myForm" enctype="multipart/form-data">
+                    <p class="orange">Request for Pickup Service</p>
+                     <form method="post" id="myForm" enctype="multipart/form-data">
                         <input type="text" id="name" class="common-input normal-input" placeholder="Customer Name"
                             name="customername" required="true">
-                        <select id="modelSelect">
-                            <option value="" disabled selected>Select your option</option>
-                            
-                        </select>
+                        <select id="modelSelect" name="device">
+                            <option disabled selected>Please Select An Model</option>
+                        </select> 
+                        
                         <input type="text" id="name" class="common-input normal-input" placeholder="Issue" name="issue"
                             required="true">
-                        <div class="preview">
-                            <img id="file-ip-1-preview">
-                        </div>
-                        <label for="file-ip-1" class="upload" id="file-ip-1txt">Upload Image</label>
-                        <input type="file" id="file-ip-1" accept="image/*" class="block" onchange="showPreview(event);" value="image">
 
-                        <input type="text" id="name" class="common-input normal-input" placeholder="Mobile"
-                            name="mobileno" required="true">
-                        <p class="text-center m-3 successmsg" style="color: #3089F1;" style="display: none;"
-                            id="successmsg">Data Submitted Successfully</p>
-                        <p class="text-center m-3 errormsg" style="color: red;" style="display: none;" id="errormsg">
-                            Oops An Error Occured</p>
+                            <div class="preview">
+                                <img id="file-ip-1-preview">
+                            </div>
+                            
+                            
+                            <div class="mb-3">
+                                <label for="formFile" class="form-label">Upload An Image</label>
+                                <input type="file" class="form-control" id="formFile" name="uploadedImage" accept="image/*" width="100%" onchange="showPreview(event);">
+                              </div>
+                        
+                       
+                        <input type="number" id="mobile" class="common-input normal-input" placeholder="Mobile"
+                            name="mobile" required="true" pattern="[1-9]{1}[0-9]{9}">
+                        
+                      
+                            
+
                         <div class="herobtnclass" id="submitid">
-                            <button class="submitbtn" type="submit" id="submit">SUBMIT</button>
-                            <!-- <button class="submitbtn" id="submit">SUBMIT</button> -->
-                            <!-- <div onclick="move()">Submit</div> -->
+                            <div class="sub" onclick="otp()">Submit</div>
+                            
                         </div>
 
                     </form>
 
+                    <section class="formDiv" id="otpForm" style="display: none">
+                        
+                        <div class="text-center mt-3">Verification Code</div>
+                        <p class="text-center mt-4">We have sent a verification code
+                          to your mobile number</p>
+                        <div id='inputs'>
+                          <input id='input1' type='number' maxLength="4" />
+                        </div>
+                        <p class="text-center m-3 successmsg" style="color: #3089F1;" style="display: none;"
+                        id="successmsg">Data Submitted Successfully</p>
+                    <p class="text-center m-3 errormsg" style="color: red;" style="display: none;" id="errormsg">
+                        Oops An Error Occured</p>
+                        <button id="submit" style="width: 100%;" onclick="submit()">Submit</button>
+                      </section>
                 </div>
             </div>
         </div>
@@ -188,7 +215,7 @@
     <div class="restbox">
         <div class="row">
             <div class="col-md-6 col-lg-6 col-sm-12">
-                <img src="https://s3-alpha-sig.figma.com/img/4e2d/5360/fb059c037e8fee684bfeff8a052cd8e2?Expires=1698019200&Signature=eQhYCVhClFKcsyhV0lnY812z~cw88M2IFaE~u57YygYqxjJ9mBv2uyBTofAG6-1XPXZRsUaXUV8JJC2KO6Sn8bKK9mI8Zq6j3O1mMzwaDKA4t4czDBn0pVxG8lHsgKozNYPFMSGgyWtFWAYC3ypst6zZFCYHyVJg7EALZyknDZIhK2fhCA8yP983d9ZWTmWft7ZerisXg0007wcuUEF5aE7~CsPflLaQbAknleqQAZVfufQXgSNqc~lJaBAqFEC3Ue3-jxs2xqyY8HF-Gn9S8WW50UIYFfJbvL97sNyC8oCIIjo6Izxn599j5ztK6z40U-PFsx87fOAFeQi~ytDMGA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
+                <img src="assets/office.jpeg"
                     alt="" width="100%" height="100%">
             </div>
             <div class="col-md-6 col-lg-6 col-sm-12 righbox">
@@ -212,8 +239,8 @@
                 in Chennai.
                 <br> </span>.</p>
     </div>
-
-
+   
+    
 </body>
 
 </html>

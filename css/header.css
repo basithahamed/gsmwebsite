@@ -129,6 +129,6 @@ line-height: normal;
     }
     .mobilesection
     {
-        display: none;
+        /* display: none; */
     }
 }
